@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject wolfForm;
     [HideInInspector] public List<GameObject> myPersons = new List<GameObject>();
     [HideInInspector] public bool transformed = false;
+    public float talkTimer;
+    public float killTimer;
     private void Awake()
     {
         if(null != instance)
@@ -21,7 +23,7 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        if(Time.time > 2 && !transformed)
+        if(0 >= talkTimer && !transformed)
         {
             transformed = true;
             Transformation();
