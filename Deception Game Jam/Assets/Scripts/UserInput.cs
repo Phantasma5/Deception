@@ -28,6 +28,7 @@ public class UserInput : MonoBehaviour
     }
     void PlayerMovement()
     {
+        //Mouse or Joystick Movement
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         Vector3 velX = instance.player.transform.right * horizontal;
@@ -35,10 +36,17 @@ public class UserInput : MonoBehaviour
         Vector3 vel = (velX + velZ).normalized * playerMovementSpeed;
         vel.y = playerRigidbody.velocity.y;
         playerRigidbody.velocity = vel;
-
+        //Mouse Camera
+        Vector3 rot;
         float mouseX = Input.GetAxis("Mouse X");
-        Vector3 rot = instance.player.transform.eulerAngles;
+        rot = instance.player.transform.eulerAngles;
         rot.y += mouseX * turnSensitivity;
+        instance.player.transform.eulerAngles = rot;
+        //Joystick Camera
+        float horizontal2 = Input.GetAxis("Horizontal2");
+        float vertical2 = Input.GetAxis("Vertical2");
+        rot = instance.player.transform.eulerAngles;
+        rot.y += horizontal2;
         instance.player.transform.eulerAngles = rot;
 
     }

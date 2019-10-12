@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public GameObject player;
+    [HideInInspector] public List<GameObject> myPersons = new List<GameObject>();
     private void Awake()
     {
         if(null != instance)

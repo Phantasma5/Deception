@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Nicoles Scripts\NPCBehaviorScript.cs" />
+    <Compile Include="Assets\Scripts\PersonSpawner.cs" />
     <Compile Include="Assets\Scripts\UserInput.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Phant/Repos/Deception/Deception Game Jam/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
