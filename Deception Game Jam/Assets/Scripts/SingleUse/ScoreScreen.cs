@@ -19,9 +19,9 @@ public class ScoreScreen : MonoBehaviour
         }
         if(null != totalTxt)
         {
-            totalTxt.text = "total";
+            totalTxt.text = instance.personCount.ToString();
         }
-        scoreTxt.text = "score";
+        scoreTxt.text = instance.score.ToString();
     }
     private void Update()
     {

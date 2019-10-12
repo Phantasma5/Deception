@@ -7,10 +7,9 @@ public class HitboxScript : MonoBehaviour
     public GameManager instance;
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("trigger entered");
         if("Enemy" == other.gameObject.tag)
         {
-            Debug.Log("Enemy spotted");
+            instance.score++;
             Destroy(other.gameObject);
             instance.userScreen.UpdatePersonCount();
         }
