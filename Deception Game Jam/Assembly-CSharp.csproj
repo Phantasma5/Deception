@@ -96,6 +96,7 @@
     <Compile Include="Assets\Scripts\Nicoles Scripts\NPCBehaviorScript.cs" />
     <Compile Include="Assets\Scripts\PersonSpawner.cs" />
     <Compile Include="Assets\Scripts\SingleUse\ScoreScreen.cs" />
+    <Compile Include="Assets\Scripts\SingleUse\Sunset.cs" />
     <Compile Include="Assets\Scripts\UserInput.cs" />
     <Compile Include="Assets\Scripts\UserInterface.cs" />
     <None Include="Assets\RPG Character Animation Pack FREE\Elements\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
