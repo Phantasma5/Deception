@@ -300,6 +300,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &228801695 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5822817082007100586, guid: 2057f2cef7fd0f14b89fb65175b803f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 296182254}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6194aeca6e5dd64f952cb8b9654909d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &256138594
 GameObject:
   m_ObjectHideFlags: 0
@@ -6967,7 +6979,7 @@ PrefabInstance:
     - target: {fileID: 7318469471560364144, guid: 346cb44afd81cd54e91c1c6cab121543,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3030365485349656245, guid: 346cb44afd81cd54e91c1c6cab121543,
         type: 3}
@@ -7274,6 +7286,11 @@ PrefabInstance:
       propertyPath: killTimer
       value: 120
       objectReference: {fileID: 0}
+    - target: {fileID: 6529577563974222833, guid: 0c9ac8c24e906b940ad65e89c1568632,
+        type: 3}
+      propertyPath: userScreen
+      value: 
+      objectReference: {fileID: 228801695}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c9ac8c24e906b940ad65e89c1568632, type: 3}
 --- !u!1 &2075795758 stripped
