@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class HitboxScript : MonoBehaviour
 {
-    public GameManager instance;
+    private GameManager instance;
+
+    private void Start()
+    {
+        instance = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
+    }
     private void OnTriggerStay(Collider other)
     {
         if("Enemy" == other.gameObject.tag)
