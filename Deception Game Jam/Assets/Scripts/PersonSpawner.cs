@@ -28,7 +28,7 @@ public class PersonSpawner : MonoBehaviour
     private void Update()
     {
         spawnCD += Time.deltaTime;
-        if(spawnCD > spawnTimer)
+        if(spawnCD > spawnTimer && !instance.transformed)
         {
             spawnCD -= spawnTimer;
             StartCoroutine(SpawnPerson());

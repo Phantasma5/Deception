@@ -28,13 +28,17 @@ public class UserInput : MonoBehaviour
         PlayerMovement();
 
         //get rid of hitbox
-        if (null != hitbox)
-        {
-            Destroy(hitbox, 0.2f);
-        }
     }
     void Keypress()
     {
+        if (Input.GetButtonUp("Jump") && instance.transformed)
+        {
+            hitbox.SetActive(false);
+        }
+        if (Input.GetButtonDown("Jump") && instance.transformed)
+        {
+            hitbox.SetActive(true);
+        }
         if (Input.GetButton("Jump") && instance.transformed)
         {
             Jump();
@@ -60,7 +64,7 @@ public class UserInput : MonoBehaviour
     {
         if (jumpCD < Time.time)
         {
-            hitbox = Attack();
+            Attack();
             jumpCounter++;
             instance.player.GetComponent<Rigidbody>().AddForce((instance.player.transform.forward + new Vector3(0, 0.01f, 0)) * jumpForce);
             if (jumpCounter > 30)
@@ -70,10 +74,11 @@ public class UserInput : MonoBehaviour
             }
         }
     }
-    private GameObject Attack()
+    private void Attack()
     {
-        GameObject temp = Instantiate(instance.hixboxPrefab, (instance.player.transform.position + instance.player.transform.forward), instance.player.transform.rotation);
-        return temp;
+        //GameObject temp = Instantiate(instance.hixboxPrefab, (instance.player.transform.position + instance.player.transform.forward * 2), instance.player.transform.rotation);
+        //return temp;
+
     }
     void PlayerMovement()
     {

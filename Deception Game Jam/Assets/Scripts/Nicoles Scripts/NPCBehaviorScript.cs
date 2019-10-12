@@ -16,6 +16,7 @@ public class NPCBehaviorScript : MonoBehaviour
     NavMeshAgent npcAgent;
     int destinationPoint;
     float npcSpeed;
+    float playerDistance;
     private GameManager instance;
 
     // Start is called before the first frame update
@@ -40,18 +41,22 @@ public class NPCBehaviorScript : MonoBehaviour
         npcAgent.autoBraking = false;
         NextPoint();
         npcSpeed = npcAgent.speed;
-        //StartCoroutine("PlayerIsSpeaking");
         trail.Pause();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!npcAgent.pathPending && npcAgent.remainingDistance < 5.0f)
+        playerDistance = Vector3.Distance(transform.position, instance.player.transform.position);
+        if(instance.transformed == true && playerDistance < 10f)
+        {
+            Vector3 playerAway = transform.position + (transform.position - instance.player.transform.position);
+            npcAgent.destination = playerAway;
+        }
+        else if (!npcAgent.pathPending && npcAgent.remainingDistance < 5.0f)
         {
             NextPoint();
         }
-
         if(instance.transformed == true && spokenTo == true)
         {
             trail.Play();
