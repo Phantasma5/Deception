@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public GameObject hixboxPrefab;
     [SerializeField] private GameObject wolfForm;
+    [SerializeField] public UserInterface userScreen;
     [HideInInspector] public List<GameObject> myPersons = new List<GameObject>();
     [HideInInspector] public bool transformed = false;
     public float talkTimer;

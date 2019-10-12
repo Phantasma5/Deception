@@ -51,6 +51,7 @@ public class UserInput : MonoBehaviour
                     Debug.Log("Target hit");
                     IEnumerator talkNow = targetHit.collider.gameObject.GetComponent<NPCBehaviorScript>().PlayerIsSpeaking();
                     StartCoroutine(talkNow);
+                    instance.userScreen.UpdatePersonCount();
                 }
             }
         }
