@@ -15,7 +15,7 @@ public class Sunset : MonoBehaviour
     {
         if(instance.talkTimer > 0)
         {
-            transform.Rotate(new Vector3(0.08f, 0, 0));
+            transform.Rotate(new Vector3(0.04f, 0, 0));
         }
     }
 

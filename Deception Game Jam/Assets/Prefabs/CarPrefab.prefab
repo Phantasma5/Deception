@@ -96,7 +96,7 @@ MonoBehaviour:
   PersonPrefab: {fileID: 5694952696451604809, guid: 3044c2d75cc776649ad2598cb9bd8981,
     type: 3}
   movementSpeed: 5
-  spawnTimer: 15
+  spawnTimer: 8
   points: []
 --- !u!65 &7097499527712619822
 BoxCollider:
