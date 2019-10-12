@@ -21,6 +21,20 @@ public class CameraController : MonoBehaviour
 
         transform.position = instance.player.transform.position + modifier;
         Camera.main.transform.position = Vector3.MoveTowards(Camera.main.transform.position, transform.position, followSpeed);
+        #region Camera should move faster if you're far away
+        if (Vector3.Distance(Camera.main.transform.position, transform.position) > 5)
+        {
+            Camera.main.transform.position = Vector3.MoveTowards(Camera.main.transform.position, transform.position, followSpeed);
+        }
+        if (Vector3.Distance(Camera.main.transform.position, transform.position) > 10)
+        {
+            Camera.main.transform.position = Vector3.MoveTowards(Camera.main.transform.position, transform.position, followSpeed * 2);
+        }
+        if (Vector3.Distance(Camera.main.transform.position, transform.position) > 20)
+        {
+            Camera.main.transform.position = Vector3.MoveTowards(Camera.main.transform.position, transform.position, followSpeed * 5);
+        }
+        #endregion
         Camera.main.transform.LookAt(instance.player.transform.position);
     }
 }

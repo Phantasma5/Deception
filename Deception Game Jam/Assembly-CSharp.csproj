@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\HitboxScript.cs" />
     <Compile Include="Assets\Scripts\Nicoles Scripts\NPCBehaviorScript.cs" />
     <Compile Include="Assets\Scripts\PersonSpawner.cs" />
     <Compile Include="Assets\Scripts\UserInput.cs" />
