@@ -26,8 +26,6 @@ public class UserInput : MonoBehaviour
     {
         Keypress();
         PlayerMovement();
-
-        //get rid of hitbox
     }
     void Keypress()
     {
@@ -38,6 +36,7 @@ public class UserInput : MonoBehaviour
         if (Input.GetButtonDown("Jump") && instance.transformed)
         {
             hitbox.SetActive(true);
+            instance.player.GetComponent<Animator>();
         }
         if (Input.GetButton("Jump") && instance.transformed)
         {
@@ -46,11 +45,11 @@ public class UserInput : MonoBehaviour
         if (Input.GetButtonDown("Jump") && !instance.transformed)
         {
             //raycast if hit object has tag enemy
-            if(Physics.Raycast(instance.player.transform.position, instance.player.transform.TransformDirection(Vector3.forward), out targetHit, 15f))
+            if (Physics.Raycast(instance.player.transform.position, instance.player.transform.TransformDirection(Vector3.forward), out targetHit, 15f))
             {
                 Debug.DrawLine(transform.position, transform.TransformDirection(Vector3.forward) * 15f, Color.red);
                 Debug.Log("raycast shot");
-                if(targetHit.collider.tag == "Enemy")
+                if (targetHit.collider.tag == "Enemy")
                 {
                     Debug.Log("Target hit");
                     IEnumerator talkNow = targetHit.collider.gameObject.GetComponent<NPCBehaviorScript>().PlayerIsSpeaking();
