@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public GameObject player;
-    public GameObject hixboxPrefab;
+    public GameObject hitboxPrefab;
     [SerializeField] private GameObject wolfForm;
     [SerializeField] public UserInterface userScreen;
     [HideInInspector] public List<GameObject> myPersons = new List<GameObject>();
@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     public void Transformation()
     {
         GameObject temp = Instantiate(wolfForm, player.transform.position, player.transform.rotation);
+        GameObject temp2 = Instantiate(hitboxPrefab, (player.transform.position + player.transform.forward * 1.1f), Quaternion.identity, temp.transform);
         Destroy(player.gameObject);
         player = temp;
     }
