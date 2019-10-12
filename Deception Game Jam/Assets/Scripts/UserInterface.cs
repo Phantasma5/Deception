@@ -11,6 +11,7 @@ public class UserInterface : MonoBehaviour
     [SerializeField] private Text timerTooltip;
     [SerializeField] private Text timerCounter;
     private GameManager instance;
+    private int personCount = 0;
 
     private void Start()
     {
@@ -20,11 +21,19 @@ public class UserInterface : MonoBehaviour
     {
         UpdateTooltips();
         UpdateTimer();
-        UpdatePersonCount();
+        //UpdatePersonCount();
     }
-    private void UpdatePersonCount()
+    public void UpdatePersonCount()
     {
-        personCounter.text = instance.myPersons.Count.ToString();
+        personCount = 0;
+        for(int i = 0; i< instance.myPersons.Count; i++)
+        {
+            if(instance.myPersons[i].GetComponent<NPCBehaviorScript>().spokenTo == true)
+            {
+                personCount += 1;
+            }
+        } 
+        personCounter.text = personCount.ToString();
     }
     private void UpdateTimer()
     {
