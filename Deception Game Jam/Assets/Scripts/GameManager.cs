@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] public UserInterface userScreen;
     [HideInInspector] public List<GameObject> myPersons = new List<GameObject>();
     [HideInInspector] public bool transformed = false;
+    [HideInInspector] public int personCount = 0;
+    [HideInInspector] public int score = 0;
     public float talkTimer;
     public float killTimer;
     private void Awake()
