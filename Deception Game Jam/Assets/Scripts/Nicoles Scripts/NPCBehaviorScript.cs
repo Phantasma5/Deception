@@ -9,6 +9,8 @@ public class NPCBehaviorScript : MonoBehaviour
     private int startTalk;
     public string playerTalk;
     public Text textBox;
+    public Transform playerTransform;
+    public int health;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +39,7 @@ public class NPCBehaviorScript : MonoBehaviour
 
     public IEnumerator PlayerIsSpeaking()
     {
+        transform.LookAt(playerTransform);
         textBox.text = playerTalk;
         Debug.Log(textBox.text);
         yield return new WaitForSeconds(5f);
