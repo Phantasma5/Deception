@@ -15,6 +15,7 @@ public class UserInput : MonoBehaviour
     private GameObject hitbox;
     private int jumpCounter = 0;
     private float jumpCD;
+    private RaycastHit targetHit;
     #endregion
     private void Start()
     {
@@ -37,6 +38,21 @@ public class UserInput : MonoBehaviour
         if (Input.GetButton("Jump") && instance.transformed)
         {
             Jump();
+        }
+        if (Input.GetButtonDown("Jump") && !instance.transformed)
+        {
+            //raycast if hit object has tag enemy
+            if(Physics.Raycast(instance.player.transform.position, instance.player.transform.TransformDirection(Vector3.forward), out targetHit, 15f))
+            {
+                Debug.DrawLine(transform.position, transform.TransformDirection(Vector3.forward) * 15f, Color.red);
+                Debug.Log("raycast shot");
+                if(targetHit.collider.tag == "Enemy")
+                {
+                    Debug.Log("Target hit");
+                    IEnumerator talkNow = targetHit.collider.gameObject.GetComponent<NPCBehaviorScript>().PlayerIsSpeaking();
+                    StartCoroutine(talkNow);
+                }
+            }
         }
     }
     private void Jump()

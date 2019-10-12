@@ -10,15 +10,18 @@ public class NPCBehaviorScript : MonoBehaviour
     private int startTalk;
     public string playerTalk;
     public Text textBox;
-    public Transform playerTransform;
+    public bool spokenTo;
+    public ParticleSystem trail;
     public Transform[] points;
     NavMeshAgent npcAgent;
     int destinationPoint;
     float npcSpeed;
+    private GameManager instance;
 
     // Start is called before the first frame update
     void Start()
     {
+        instance = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
         startTalk = Random.Range(0, 2); //randomly choose what they are going to say;
         if (startTalk == 0)
         {
@@ -32,12 +35,13 @@ public class NPCBehaviorScript : MonoBehaviour
         {
             playerTalk = "Henlo!";
         }
-
+        spokenTo = false;
         npcAgent = GetComponent<NavMeshAgent>(); //Set movement
         npcAgent.autoBraking = false;
         NextPoint();
         npcSpeed = npcAgent.speed;
-        StartCoroutine("PlayerIsSpeaking");
+        //StartCoroutine("PlayerIsSpeaking");
+        trail.Pause();
     }
 
     // Update is called once per frame
@@ -47,15 +51,21 @@ public class NPCBehaviorScript : MonoBehaviour
         {
             NextPoint();
         }
+
+        if(instance.transformed == true && spokenTo == true)
+        {
+            trail.Play();
+        }
     }
 
     public IEnumerator PlayerIsSpeaking()
     {
         npcAgent.speed = 0f;
-        transform.LookAt(playerTransform);
+        transform.LookAt(instance.player.gameObject.transform);
         textBox.text = playerTalk;
         Debug.Log(textBox.text);
-        yield return new WaitForSeconds(5f);
+        spokenTo = true;
+        yield return new WaitForSeconds(3f);
         textBox.text = "";
         npcAgent.speed = npcSpeed;
     }
