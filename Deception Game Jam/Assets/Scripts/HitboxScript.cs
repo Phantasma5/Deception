@@ -15,8 +15,10 @@ public class HitboxScript : MonoBehaviour
         if("Enemy" == other.gameObject.tag)
         {
             instance.score++;
+            instance.myPersons.Remove(other.gameObject);
             Destroy(other.gameObject);
             instance.userScreen.UpdatePersonCount();
+            instance.VictoryCheck();
         }
         Debug.Log(other.gameObject.tag);
     }

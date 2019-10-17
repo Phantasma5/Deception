@@ -31,6 +31,17 @@ public class GameManager : MonoBehaviour
             transformed = true;
             Transformation();
         }
+        if(0 >= killTimer && transformed)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
+        }
+    }
+    public void VictoryCheck()
+    {
+        if(0 >= myPersons.Count)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Victory");
+        }
     }
 
     public void Transformation()
